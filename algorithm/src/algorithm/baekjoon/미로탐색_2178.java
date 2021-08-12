@@ -25,12 +25,12 @@ public class 미로탐색_2178 {
 	    }
 //	    printMaze(maze, n, m);
 
-	    Queue<Node> q = new LinkedList<>();
+	    Queue<Point> q = new LinkedList<>();
 
-	    q.add(new Node(0, 0, 1));
+	    q.add(new Point(0, 0, 1));
 
 	    while (!q.isEmpty()) {
-		Node node = q.poll();
+		Point node = q.poll();
 
 		if ((node.row + 1 == n) && (node.col + 1 == m)) {
 		    System.out.println(node.depth);
@@ -45,7 +45,7 @@ public class 미로탐색_2178 {
 		    if (moveRow > -1 && moveRow < n && moveCol > -1 && moveCol < m) {
 			if ((maze[moveRow][moveCol] == 1) && !visted[moveRow][moveCol]) {
 			    visted[moveRow][moveCol] = true;
-			    q.add(new Node(moveRow, moveCol, node.depth + 1));
+			    q.add(new Point(moveRow, moveCol, node.depth + 1));
 			}
 		    }
 
@@ -68,12 +68,12 @@ public class 미로탐색_2178 {
 
 }
 
-class Node {
+class Point {
     int row;
     int col;
     int depth;
 
-    public Node(int row, int col, int depth) {
+    public Point(int row, int col, int depth) {
 	this.row = row;
 	this.col = col;
 	this.depth = depth;

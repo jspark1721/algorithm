@@ -2,26 +2,49 @@ package algorithm.baekjoon;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class 스택_10828 {
 
     public static void main(String[] args) throws Exception {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	int num = Integer.parseInt(br.readLine());
-	Stack stack = new Stack(num);
+	StackTest stack = new StackTest(num);
 	for (int i = 0; i < num; i++) {
 	    String comm = br.readLine();
 	    stack.comm(comm);
 	}
+	Map<String, String> tes = new HashMap<>();
+	List<String> genres = new ArrayList<>();
+	tes.keySet().stream().forEach(item -> {
+	    genres.add(item);
+	});
+
+	Collections.sort(genres);
+
+	for (int i = 0; i < 2; i++) {
+
+	    for (int j = 0; j < 2; j++) {
+//		genres.get(i).get
+	    }
+	}
+
+	Collection<String> values = tes.values();
+
     }
 }
 
-class Stack {
+class StackTest {
     int top;
     int stack[];
     int size;
 
-    public Stack(int size) {
+    public StackTest(int size) {
 	top = -1;
 	stack = new int[size];
 	this.size = size;

@@ -8,7 +8,7 @@ public class 큐_10845 {
     public static void main(String[] args) throws Exception {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	int num = Integer.parseInt(br.readLine());
-	Queue queue = new Queue(num);
+	QueueTest queue = new QueueTest(num);
 	for (int i = 0; i < num; i++) {
 	    String comm = br.readLine();
 	    queue.comm(comm);
@@ -16,7 +16,7 @@ public class 큐_10845 {
     }
 }
 
-class Queue {
+class QueueTest {
 
     int rear = -1;
     int front = 0;
@@ -40,7 +40,7 @@ class Queue {
 	}
     }
 
-    public Queue(int maxsize) {
+    public QueueTest(int maxsize) {
 	queue = new int[maxsize];
 	this.maxsize = maxsize;
 
