@@ -28,38 +28,38 @@ public class 단지번호붙이기_2667 {
 	    int count = 0;
 	    System.out.println(size);
 	    for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-		    if (visted[i][j] || (apt[i][j] != 1)) {
-			continue;
-		    }
-		    count++;
-		    Queue<Apart> q = new LinkedList<>();
-		    q.add(new Apart(i, j));
-		    visted[i][j] = true;
-		    int aptCount = 1;
-		    while (!q.isEmpty()) {
-			Apart apart = q.poll();
-
-			for (int chk = 0; chk < 4; chk++) {
-			    int moveRow = apart.row + yArr[chk];
-			    int moveCol = apart.col + xArr[chk];
-
-			    if (moveRow > -1 && moveRow < size && moveCol > -1 && moveCol < size) {
-				if ((apt[moveRow][moveCol] == 1) && !visted[moveRow][moveCol]) {
-				    visted[moveRow][moveCol] = true;
-				    q.add(new Apart(moveRow, moveCol));
-				    aptCount++;
+			for (int j = 0; j < size; j++) {
+				if (visted[i][j] || (apt[i][j] != 1)) {
+					continue;
 				}
-			    }
+				count++;
+				Queue<Apart> q = new LinkedList<>();
+				q.add(new Apart(i, j));
+				visted[i][j] = true;
+				int aptCount = 1;
+				while (!q.isEmpty()) {
+					Apart apart = q.poll();
+
+					for (int chk = 0; chk < 4; chk++) {
+						int moveRow = apart.row + yArr[chk];
+						int moveCol = apart.col + xArr[chk];
+
+						if (moveRow > -1 && moveRow < size && moveCol > -1 && moveCol < size) {
+							if ((apt[moveRow][moveCol] == 1) && !visted[moveRow][moveCol]) {
+								visted[moveRow][moveCol] = true;
+								q.add(new Apart(moveRow, moveCol));
+								aptCount++;
+							}
+						}
+					}
+				}
+				aptCountList.add(aptCount);
 			}
-		    }
-		    aptCountList.add(aptCount);
 		}
-	    }
-	    System.out.println(count);
-	    aptCountList.stream().sorted().forEach(item -> {
-		System.out.println(item);
-	    });
+		System.out.println(count);
+		aptCountList.stream().sorted().forEach(item -> {
+			System.out.println(item);
+		});
 //	    while (!aptCountList.isEmpty()) {
 //		System.out.println(aptCountList.poll());
 //	    }
